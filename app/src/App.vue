@@ -8,7 +8,7 @@
       Welcome!
     </p>
     <p class="text-gray-500 text-lg">
-      Vue and Tailwind CSS in action
+      Vue and Tailwind CSS in action test 123
     </p>
   </div>
 </template>
