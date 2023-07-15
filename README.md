@@ -1,1 +1,1 @@
-# SoloQ
+# lol-mm-frontend
