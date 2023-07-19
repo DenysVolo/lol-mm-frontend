@@ -3,14 +3,9 @@
         <h1>Name of tournamement</h1>
 
         <li v-for="team in teams" class="border border-gray-900 bg-gray-500 rounded-md p-5 flex justify-between items-center h-12">
-            <ul> {{ team.name }} </ul>
-            <ul> {{ team.points }} </ul>
-            <ul> {{ team.country }} </ul>
+            {{ team.name }}, {{ team.points }}, {{ team.country }}
         </li>
-
-        <button @click="fetchData">
-            Click me
-        </button>
+        
     </div>
 </template>
 
