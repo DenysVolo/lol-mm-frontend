@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+<!--    temp navbar-->
+    <div class="py-12 bg-cus-med-grey"></div>
     <router-view></router-view>
   </div>
 </template>
