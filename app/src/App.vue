@@ -8,5 +8,6 @@
 /* GLOBAL STYLES DO NOT CHANGE */
   body {
     background-color: #282b31;
+    color: #e39025;
   }
 </style>
