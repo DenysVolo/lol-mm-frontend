@@ -21,7 +21,7 @@ const fetchData = () => {
                 })
                 .then((response) => {
                     response.json().then((data) => {
-                        this.teams = data.data;
+                        teams.value = data.data;
                         console.log(data);
                     });
                 })
@@ -30,6 +30,6 @@ const fetchData = () => {
                 });
 }
 
-onMounted (() => this.fetchData());
+onMounted (() => fetchData());
 
 </script>
