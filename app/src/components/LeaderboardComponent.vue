@@ -9,19 +9,14 @@
     </div>
 </template>
 
-<script>
-    export default {
-        name: "LeaderboardComponent",
+<script setup>
 
-        data() {
-            return {
-                teams: [  ],
-            };
-        },
+import { ref, onMounted } from "vue";
 
-        methods: {
-            fetchData() {
-                fetch('http://127.0.0.1:8081/get_leaderboard', {
+const teams = ref([]);
+
+const fetchData = () => {
+    fetch('http://127.0.0.1:8081/get_leaderboard', {
                     method: "GET"
                 })
                 .then((response) => {
@@ -33,12 +28,8 @@
                 .catch((err) => {
                     console.error(err);
                 });
-            },
-        },
+}
 
-        mounted() {
-            this.fetchData();
-        }
-    }
+onMounted (() => this.fetchData());
 
 </script>
