@@ -5,8 +5,11 @@ module.exports = {
       "./src/**/*.{vue,js,ts,jsx,tsx}"
   ],
   theme: {
+    fontFamily: {
+      bebas: ['Bebas Neue']
+    },
     colors: {
-      'cus-light-grey': '#bac7e5',
+      'cus-light-grey': '#93968b',
       'cus-med-grey' : '#7b7e74',
       'cus-dark-grey': '#282b31',
       'cus-yellow' : '#f2a51e',
