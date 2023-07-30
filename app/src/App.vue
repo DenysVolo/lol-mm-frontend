@@ -10,6 +10,6 @@
 /* GLOBAL STYLES DO NOT CHANGE */
   body {
     background-color: #282b31;
-    color: #e39025;
+    color: #e2e8f0;
   }
 </style>

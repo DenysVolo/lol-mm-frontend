@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../pages/HomePage.vue';
 import Leaderboard from '../pages/LeaderboardPage.vue';
+import Team from '../pages/TeamPage.vue';
 
 const routes = [
   {
@@ -8,12 +9,16 @@ const routes = [
     name: 'home',
     component: Home
   },
-  //TODO can create multiple leagues across one page with dropdown, or have different pages? - discuss
   {
     path: '/leaderboard',
     name: 'leaderboard',
     component: Leaderboard
   },
+  {
+    path: '/team/{teamId}',
+    name: 'team',
+    component: Team
+  }
 ];
 
 const router = createRouter({
