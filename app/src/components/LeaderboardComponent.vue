@@ -9,19 +9,21 @@ const teamsStore = useTeamsStore();
 </script>
 
 <template>
-    <div class="mx-auto w-5/6 bg-cus-med-grey px-1 py-4 rounded-md font-bebas">
-      <div class="grid grid-cols-4 gap-2 text-center py-2 px-4 text-cus-yellow font-bold text-2xl">
-        <div>Position</div>
-        <div>Team Name</div>
-        <div>Country</div>
-        <div>Points</div>
-      </div>
-      <div v-for="(team, index) in teamsStore.teams" class="grid grid-cols-4 gap-2 text-center text-xl py-2 px-4 text-cus-yellow rounded-sm" :class="index % 2 === 0 ? 'bg-cus-light-grey' : 'bg-cus-med-grey'">
-        <div>{{ index + 1}} </div>
-        <div>{{ team.name }}</div>
-        <div>{{ team.country }}</div>
-        <div>{{ team.points }}</div>
-      </div>
+  <div class="w-5/6 mx-auto md:w-2/3 bg-cus-med-grey px-1 py-4 rounded-md font-bebas drop-shadow-xl border border-cus-yellow">
+    <div class="text-sm md:text-xl grid grid-cols-5 gap-2 text-center py-2 px-4 font-bold">
+      <div class="text-left">Position</div>
+      <div class="text-left">Team</div>
+      <div>Wins</div>
+      <div>Losses</div>
+      <div>Points</div>
     </div>
-    <button class="mx-auto" @click="teamsStore.testIncrement(); teamsStore.testAddTeam()">Add To Score and Add Team</button>
+    <div v-for="(team, index) in teamsStore.teams" class="text-sm grid grid-cols-5 gap-2 text-center md:text-xl py-2 px-4 rounded-sm" :class="index % 2 === 0 ? 'bg-cus-light-grey hover:bg-cus-light-grey-hover hover:drop-shadow-xl' : 'bg-cus-med-grey hover:bg-cus-med-grey-hover hover:drop-shadow-xl' ">
+      <div class="text-left">{{ index + 1 }} </div>
+      <div class="text-left">{{ team.name }}</div>
+      <div> 3 </div>
+      <div> 1 </div>
+      <div >{{ team.points }}</div>
+    </div>
+  </div>
+  <button @click="teamsStore.testIncrement(); teamsStore.testAddTeam()">Add To Score and Add Team</button>
 </template>
