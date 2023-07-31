@@ -1,24 +1,23 @@
-import { defineStore } from 'pinia'
-import axios from "axios"
-export const useLeaderboardStore = defineStore("leaderboard", {
-    state: () => ({
-        leaderboard: [],
-    }),
-    getters: {
-        getLeaderboard(state){
-            return state.leaderboard
+import { ref } from "vue";
+import axios from "axios";
+
+const useLeaderboardStore = () => {
+    const leaderboard = ref([]);
+
+    async function fetchLeaderboard() {
+        try {
+            const response = await axios.get("http://127.0.0.1:8081/get_leaderboard");
+            leaderboard.value = response.data.data;
+        } catch (error) {
+            alert(error);
+            console.log(error);
         }
-    },
-    actions: {
-        async fetchLeaderboard() {
-            try {
-                const data = await axios.get(`http://127.0.0.1:8081/get_leaderboard`);
-                this.leaderboard = data.data.data
-            }
-            catch (error) {
-                alert(error)
-                console.log(error)
-            }
-        }
-    },
-})
+    }
+
+    return {
+        leaderboard,
+        fetchLeaderboard,
+    };
+};
+
+export default useLeaderboardStore;

@@ -1,17 +1,15 @@
 <script setup>
-import { onMounted, computed } from "vue";
-import { useLeaderboardStore } from "../stores/leaderboard";
-const store = useLeaderboardStore();
+import {computed, onMounted, ref} from "vue";
+import useLeaderboardStore from "../stores/leaderboard.js";
 
-const teams = computed(() => {
-  return store.leaderboard;
-});
-onMounted(() => {
-  store.fetchLeaderboard();
+const { leaderboard, fetchLeaderboard } = useLeaderboardStore();
+
+onMounted(async () => {
+  await fetchLeaderboard();
 });
 
-const refreshLeaderboard = () => {
-  store.fetchLeaderboard();
+const refreshLeaderboard = async () => {
+  await fetchLeaderboard();
 };
 </script>
 
@@ -27,7 +25,7 @@ const refreshLeaderboard = () => {
         <div>Points</div>
       </div>
     </div>
-    <div v-for="(team, index) in teams"
+    <div v-for="(team, index) in leaderboard"
          class="text-sm grid grid-cols-3 text-center md:text-xl py-2 px-4 rounded-sm"
          :class="index % 2 === 0 ? 'bg-cus-light-grey hover:bg-cus-light-grey-hover hover:drop-shadow-xl'
          : 'bg-cus-med-grey hover:bg-cus-med-grey-hover hover:drop-shadow-xl' "
