@@ -14,8 +14,6 @@ export const useTeamsStore = defineStore('teams', () => {
       axios.get('http://127.0.0.1:8081/get-leaderboard')
             .then((response) => {
                 teams.value = response.data;
-                console.log("Recieved Team Data")
-                console.log(response.data);
             })
             .catch((err) => {
                 console.error(err);
