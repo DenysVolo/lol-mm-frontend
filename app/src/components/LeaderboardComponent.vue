@@ -1,31 +1,31 @@
 <script setup>
-import {computed, onMounted, ref} from "vue";
-import useLeaderboardStore from "../stores/leaderboard.js";
+import { computed, onMounted, ref } from "vue";
+import { useLeaderboardStore } from "../stores/leaderboard.js";
 
-const { leaderboard, fetchLeaderboard } = useLeaderboardStore();
+const leaderboardStore = useLeaderboardStore();
 
 onMounted(async () => {
-  await fetchLeaderboard();
+  await leaderboardStore.fetchLeaderboard();
 });
 
 const refreshLeaderboard = async () => {
-  await fetchLeaderboard();
+  await leaderboardStore.fetchLeaderboard();
 };
 </script>
 
 <template>
   <div class="w-5/6 mx-auto md:w-1/2 bg-cus-med-grey px-1 py-4 rounded-md font-bebas drop-shadow-xl">
-    <div class="text-sm md:text-xl grid grid-cols-3 text-center py-2 px-4 mb-2 font-bold bg-cus-dark-grey rounded-md">
+    <div class="text-sm md:text-xl grid grid-cols-3 text-center py-2 px-4 mb-2 font-bold bg-cus-dark-grey rounded-md tracking-wider">
       <div class="text-left">Position</div>
       <div class="text-left">Team</div>
 
-      <div class="grid grid-cols-3 gap-1">
+      <div class="grid grid-cols-3 gap-1 tracking-wider">
         <div>Wins</div>
         <div>Losses</div>
         <div>Points</div>
       </div>
     </div>
-    <div v-for="(team, index) in leaderboard"
+    <div v-for="(team, index) in leaderboardStore.leaderboard"
          class="text-sm grid grid-cols-3 text-center md:text-xl py-2 px-4 rounded-sm"
          :class="index % 2 === 0 ? 'bg-cus-light-grey hover:bg-cus-light-grey-hover hover:drop-shadow-xl'
          : 'bg-cus-med-grey hover:bg-cus-med-grey-hover hover:drop-shadow-xl' "
