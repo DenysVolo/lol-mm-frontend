@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink } from 'vue-router'
+import router from '../router/router'
 </script>
 
 <template>
@@ -7,13 +8,10 @@ import { RouterLink } from 'vue-router'
     <nav>
       <ul class="md:flex place-content-center mr-10">
         <li class="md:mx-4">
-          <router-link class="text-3xl hover:text-cus-gold font-bold font-bebas tracking-wider text-cus-white" :to="this.$router.getRoutes()[0].path"> {{ this.$router.getRoutes()[0].name }} </router-link>
+          <router-link class="text-3xl hover:text-cus-gold font-bold font-bebas tracking-wider text-cus-white" :to="{ name: 'home'}"> Home </router-link>
         </li>
         <li class="md:mx-4">
-          <router-link class="text-3xl hover:text-cus-gold font-bold font-bebas tracking-wider text-cus-white" :to="this.$router.getRoutes()[1].path"> {{ this.$router.getRoutes()[1].name }} </router-link>
-        </li>
-        <li class="md:mx-4">
-          <router-link class="text-3xl hover:text-cus-gold font-bold font-bebas tracking-wider text-cus-white" :to="this.$router.getRoutes()[2].path"> {{ this.$router.getRoutes()[2].name }} </router-link>
+          <router-link class="text-3xl hover:text-cus-gold font-bold font-bebas tracking-wider text-cus-white" :to="{ name: 'leaderboard'}"> Leaderboard </router-link>
         </li>
       </ul>
     </nav>
