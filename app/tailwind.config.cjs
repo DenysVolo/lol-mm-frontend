@@ -14,9 +14,10 @@ module.exports = {
             'cus-med-grey' : '#353941',
             'cus-med-grey-hover' : '#646a78',
             'cus-dark-grey': '#1a1b1d',
-            'cus-yellow' : '#f2a51e',
             'cus-gold' : '#e39025',
-            'cus-brown' : '#8d7051'
+
+            'cus-white' : '#F4F4F9',
+            'cus-light-blue' : '#B8DBD9'
         },
         extend: {},
     },
